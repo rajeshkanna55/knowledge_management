@@ -4,6 +4,8 @@ import './index.css';
 import Enter from './App';
 import Login from './Login';
 import Signup from './Signup';
+import Admin from './Admin_dashboard';
+import File from './upload_file'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 export default function Main() {
@@ -13,6 +15,8 @@ export default function Main() {
     <Route path="/" element={<Enter/>}></Route>    
     <Route path="/learn" element={<Login/>}></Route>
     <Route path="/signup" element={<Signup/>}></Route>
+    <Route path="/dash" element={<Admin/>}></Route>
+    <Route path="/upload" element={<File/>}></Route>
     </Routes>       
   </BrowserRouter>
     );
@@ -20,8 +24,4 @@ export default function Main() {
     
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Main/>);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

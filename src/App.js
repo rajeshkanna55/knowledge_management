@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom';
 function Head(){
   return (
     <div>
-      <div class="container-fluid d-flex" >
-          <nav class="d-flex w-100 " >
+      <div className="container-fluid d-flex" >
+          <nav className="d-flex w-100 " >
             <img src={img}
               alt='logo png'></img>
-            <h3 class="mx-2 my-2">Learn</h3>
+            <h3 className="mx-2 my-2">Learn</h3>
             </nav>
             </div>
     </div>
@@ -21,7 +21,7 @@ function Head(){
 function Welcome(){
   return (
     <div>
-      <div class="container">
+      <div className="container">
         <h2>Knowledge Base Portal
 For Editors, Writers, and Reviewers
 </h2>
