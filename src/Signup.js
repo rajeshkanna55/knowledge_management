@@ -1,8 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { Link } from 'react-router-dom';
 import { Header } from './Login';
 import React, { Component } from 'react';
+import { Navigate } from "react-router-dom";
+// import { withRouter } from './roots';
+
 
 
 
@@ -13,41 +15,58 @@ class Signin extends Component {
             type: '',
             username: '',
             email: '',
-            password: ''  
+            password: '',
+            conpass:''
         }
     }
     handlechange = (e) => {
         this.setState({ [e.target.id]: e.target.value });
-
+         
     }
+    yourFunctionHere()
+    {
+        this.props.navigate('/learn')
+    }
+
     submit = (e) => {
         e.preventDefault();
-        const { type, username, email, password } = this.state
-        // const Arr = {
-        //     type, username, email, password
-        // }
-      
+        const { type, username, email, password } = this.state;
         if (this.state.type !== "") {
+                alert("please select user type");
             var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{8,16}$/;
             if (regularExpression.test(this.state.password)) {
-                var regEx = /^[0-9A-Z]/
+                var regEx = /^[0-9A-Z]/;
                 if (regEx.test(this.state.username)) {
 
                     try {
-                        fetch('http://localhost:4000/register/rajesh', {
+                        fetch('http://localhost:4000/register/rajesh',{
                             method: 'POST',
                             mode: 'cors',
                             headers: {
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify(this.state)
+                        }).then(async (res)=>{ 
+                            if(res.status===201)
+                            {
+                                alert('if condition work');
+                                this.yourFunctionHere();
+                            }
+                            else if(res.status===304){
+                                 alert('else work');
+                            }
+                            else{
+                                alert('server error');
+                            }
                         })
+
+                     
                     } catch (error) {
                         console.log(error);
                     }
                 }
                 else {
-                   alert('enter strong username');
+                    alert('enter strong username');
                 }
             }
             else {
@@ -71,19 +90,19 @@ class Signin extends Component {
                         </select>
                         <div className="form-group w-50">
                             <label className="form__label my-2">Username</label>
-                            <input type="text" className="form-control" name='username'   onChange={this.handlechange} placeholder="Enter your Username" id='username' required />
+                            <input type="text" className="form-control" name='username' onChange={this.handlechange} placeholder="Enter your Username" id='username' required />
                         </div>
                         <div className="form-group w-50">
                             <label className="form__label  my-2">EmailId</label>
-                            <input type="email" className="form-control" name='email' onChange={this.handlechange} placeholder="Enter your Password" id='email' required />
+                            <input type="email" className="form-control" name='email' onChange={this.handlechange} placeholder="Enter your Emailid" id='email' required />
                         </div>
                         <div className="form-group w-50">
                             <label className="form__label  my-2">Password</label>
-                            <input type="password" className="form-control" name='password' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={this.handlechange} autoComplete="off" placeholder="Enter your Password" id='password' required />
+                            <input type="password" className="form-control" name='password' onChange={this.handlechange} autoComplete="off" placeholder="Enter your Password" id='password' required />
                         </div>
                         <div className="form-group w-50">
                             <label className="form__label  my-2">Confirm Password</label>
-                            <input type="password" className="form-control" placeholder="Enter your Password"  autoComplete="off" name="pass" id='conpass' required />
+                            <input type="password" className="form-control" placeholder="Enter your Password" onChange={this.handlechange} autoComplete="off" name="pass" id='conpass' required />
                         </div>
                         <div className="form-group">
                             <button className="btn btn-success my-2 float-end" type="submit" onClick={this.submit}>Submit</button>
@@ -95,7 +114,9 @@ class Signin extends Component {
     }
 }
 
-function Sign() {
+
+
+export function Sign() {
     return (
         <div>
             <Header />
@@ -103,4 +124,5 @@ function Sign() {
         </div>
     );
 }
+
 export default Sign;

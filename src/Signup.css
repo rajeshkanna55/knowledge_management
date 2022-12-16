@@ -1,4 +1,7 @@
 .container-fluid{
     background-image: linear-gradient(to bottom right, rgb(83, 204, 168), rgb(247, 247, 243));
   }
-  
+  #usernam
+{
+  color:brown;
+}

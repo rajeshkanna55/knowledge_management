@@ -8,16 +8,29 @@ import './upload_file.css';
 class Upload extends Component{
     constructor(props){
         super(props);
+        this.state={
+            name:'',
+            file:''  
+        }
     }
+        data = (e) =>{
+            this.setState({[e.target.id]:e.target.value});
+        }
+        submit=(e) =>{
+            e.preventDefault();
+            const {name,file}=this.state;
+            
+        }
+    
     render(){
         return (
             <div>
                 <div className='container bg-info w-50' id='fill'>
                     <form onSubmit={this.submit}>
-                        <label className='form__label'>File Name</label>
-                        <input type='text' className='form-control w-50' placeholder='File Name' onChange={this.handlechange}></input>
+                        <label className='form__label' >File Name</label>
+                        <input type='text' className='form-control w-50' placeholder='File Name' id="name" onChange={this.data}></input>
                         <br></br>
-                        <input type='file' id='file' name='filename'></input>
+                        <input type='file' id='file' onChange={this.data} name='filename'></input>
                         <input id="button" type='submit'></input>
                     </form>
                 </div>
