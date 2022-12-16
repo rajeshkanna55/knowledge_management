@@ -33,6 +33,7 @@ export class Option extends Component {
         );
     }
 }
+
  export class Dashboard extends Component {
     constructor(props) {
         super(props);
@@ -41,7 +42,7 @@ export class Option extends Component {
         return (
             <div>
                 <div className='container m-0 w-25' > 
-                    <h3 className='mx-4'>Admin</h3>
+                    <h3 className='mx-4'>Menu's</h3>
                     <div className=''>
                         <ul>
                             <li className='my-2'><a href="">Dashboard</a></li>

@@ -10,17 +10,48 @@ class Upload extends Component{
         super(props);
         this.state={
             name:'',
-            file:''  
+            filename:''  
         }
     }
         data = (e) =>{
             this.setState({[e.target.id]:e.target.value});
+          
+        }
+        dat=(e)=>{
+            const name=(e.target.files[0].name);
+            this.setState({[e.target.id]:name});
         }
         submit=(e) =>{
             e.preventDefault();
-            const {name,file}=this.state;
-            
+            const {name,filename}=this.state;
+            console.log(this.state);
+            if(this.state.name==="")
+            {
+                alert('please enter file name');
+            }
+            else{
+                const uri='http://localhost:4000/resource/uploads';
+                fetch(uri, {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(this.state)
+                  }).then(async(res)=>
+                  {
+                     if(await res.status===200)
+                     {
+                        alert('file uploaded succesfully');
+                     }
+                     else 
+                     {
+                        alert('internal server error');
+                     }
+                  })
+            }
         }
+         
     
     render(){
         return (
@@ -30,7 +61,7 @@ class Upload extends Component{
                         <label className='form__label' >File Name</label>
                         <input type='text' className='form-control w-50' placeholder='File Name' id="name" onChange={this.data}></input>
                         <br></br>
-                        <input type='file' id='file' onChange={this.data} name='filename'></input>
+                        <input type='file' id="filename" onChange={e=>this.dat(e)} name='filename'></input>
                         <input id="button" type='submit'></input>
                     </form>
                 </div>

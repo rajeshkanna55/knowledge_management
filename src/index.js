@@ -8,6 +8,7 @@ import Admin from './Admin_dashboard';
 import File from './upload_file'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import { UserDash } from './user_dashboard';
 export default function Main() {
     return (
         <BrowserRouter>
@@ -17,6 +18,7 @@ export default function Main() {
     <Route path="/signup" element={<Signup/>}></Route>
     <Route path="/dash" element={<Admin/>}></Route>
     <Route path="/upload" element={<File/>}></Route>
+    <Route path="/user" element={<UserDash/>}></Route>
     </Routes>       
   </BrowserRouter>
     );

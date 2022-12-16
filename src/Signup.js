@@ -3,7 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Header } from './Login';
 import React, { Component } from 'react';
 import { Navigate } from "react-router-dom";
-// import { withRouter } from './roots';
+import { withRouter } from './roots';
 
 
 
@@ -23,21 +23,17 @@ class Signin extends Component {
         this.setState({ [e.target.id]: e.target.value });
          
     }
-    yourFunctionHere()
-    {
-        this.props.navigate('/learn')
-    }
-
     submit = (e) => {
         e.preventDefault();
         const { type, username, email, password } = this.state;
+        console.log("Role: ",this.state.type);
         if (this.state.type !== "") {
-                alert("please select user type");
+                alert("SELECT WORK");
             var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{8,16}$/;
             if (regularExpression.test(this.state.password)) {
                 var regEx = /^[0-9A-Z]/;
-                if (regEx.test(this.state.username)) {
-
+                if (regEx.test(this.state.username)) 
+                {
                     try {
                         fetch('http://localhost:4000/register/rajesh',{
                             method: 'POST',
@@ -47,12 +43,13 @@ class Signin extends Component {
                             },
                             body: JSON.stringify(this.state)
                         }).then(async (res)=>{ 
-                            if(res.status===201)
+                            console.log(res.status);
+                            if(await res.status===201)
                             {
                                 alert('if condition work');
-                                this.yourFunctionHere();
+                                this.props.navigate('/learn');
                             }
-                            else if(res.status===304){
+                            else if(res.status===401){
                                  alert('else work');
                             }
                             else{
@@ -80,6 +77,7 @@ class Signin extends Component {
     render() {
         return (
             <div>
+                    <Header />
                 <form>
                     <div className='container my-5 p-5 '>
                         <h3 className="my-2">Signup</h3>
@@ -114,15 +112,4 @@ class Signin extends Component {
     }
 }
 
-
-
-export function Sign() {
-    return (
-        <div>
-            <Header />
-            <Signin />
-        </div>
-    );
-}
-
-export default Sign;
+export default withRouter(Signin);

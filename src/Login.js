@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import img from './images/LOGO-BY-S.R.-EDITING-ZONE-13.png';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
-
+import { withRouter } from './roots';
 
 export function Header() {
   return (
@@ -36,7 +36,6 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      val: '',
       username: '',
       password: ''
     }
@@ -46,17 +45,18 @@ class Login extends Component {
   }
   submit = (e) => {
     e.preventDefault();
-    const { val, username, password } = this.state;
-    console.log(this.state);
-    if (this.state.val !== 'select') {
-      alert('please select user type')
-    }
-      else if (this.state.username === '' && this.state.password === '') {
+    const { username, password } = this.state;
+  
+   
+    
+    
+      if (this.state.username === '' && this.state.password === '') {
         alert('please fill data');
 
       }
       else {
-        fetch('http://localhost:4000/logon', {
+        const uri='http://localhost:4000/logon';
+        fetch(uri, {
           method: 'POST',
           mode: 'cors',
           headers: {
@@ -66,13 +66,23 @@ class Login extends Component {
         })
           .then(async (res) => {
             if (await res.status === 200) {
-              alert("login successfully");
+              alert("User successfully");
+              this.props.navigate('/dash');
+            }
+            else if(await res.status=== 201){
+              alert("Admin login successfully");
+              this.props.navigate('/user');
+            }
+            else{
+                alert('invalid username or password');
             }
           })
           .catch((error) => {
             console.log(error);
           })
-      }
+      
+    }
+     
 
 
     }
@@ -80,15 +90,10 @@ class Login extends Component {
     render() {
       return (
         <div>
+           <Header />
           <form >
             <div className='container my-5 p-5 '>
               <h3 className="my-2">Login</h3>
-              <select className="form-select w-25 " id="val" onChange={this.handlechange} aria-label="Default select example">
-                <option>select</option>
-                <option value="User">User</option>
-                <option value="Admin">Admin</option>
-              </select>
-
               <div className="form-group w-50">
                 <label className="form__label my-2">Username</label>
                 <input type="text" className="form-control" placeholder="Enter your Username" onChange={this.handlechange} name="name" id='username' required />
@@ -106,13 +111,6 @@ class Login extends Component {
       );
     }
   }
-function App() {
-  return (
-    <div>
-      <Header />
-      <Login />
-    </div>
-  );
-}
 
-export default App;
+
+export default withRouter(Login);
