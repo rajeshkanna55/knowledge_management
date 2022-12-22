@@ -18,8 +18,8 @@ class Upload extends Component{
           
         }
         dat=(e)=>{
-            const name=(e.target.files[0].name);
-            this.setState({[e.target.id]:name});
+            
+            this.setState({[e.target.id]:e.target.files[0].name});
         }
         submit=(e) =>{
             e.preventDefault();
@@ -44,7 +44,7 @@ class Upload extends Component{
                      {
                         alert('file uploaded succesfully');
                      }
-                     else 
+                     else if( res.status===400)
                      {
                         alert('internal server error');
                      }
@@ -56,9 +56,11 @@ class Upload extends Component{
     render(){
         return (
             <div>
-                <div className='container bg-info w-50' id='fill'>
+                <div className='container  w-50' id='fill'>
                     <form onSubmit={this.submit}>
+                        <br></br>
                         <label className='form__label' >File Name</label>
+                        <br></br>
                         <input type='text' className='form-control w-50' placeholder='File Name' id="name" onChange={this.data}></input>
                         <br></br>
                         <input type='file' id="filename" onChange={e=>this.dat(e)} name='filename'></input>

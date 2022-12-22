@@ -20,7 +20,9 @@ export class Option extends Component {
                         <div>
                             <ul className='d-flex flex-row' >
                                 <li className='mx-5 my-3 p-1'><a href="">About</a></li>
-                                <li className='mx-5 my-3 p-1'><a href="">Resources</a></li>
+                                <Link to={'/products'}>
+                                <li className='mx-5 my-3 p-1'><a href="">Products</a></li>
+                                </Link>
                                 <li className='mx-5 my-3 p-1'><a href="">Company</a></li>
                                 <li className='mx-5 my-3 p-1'><a href="">Career</a></li>
                                 <li className='mx-5 my-3 p-1'><a href="">Contact</a></li>
@@ -34,28 +36,31 @@ export class Option extends Component {
     }
 }
 
- export class Dashboard extends Component {
+export class Dashboard extends Component {
     constructor(props) {
         super(props);
+
     }
     render() {
         return (
             <div>
-                <div className='container m-0 w-25' > 
-                    <h3 className='mx-4'>Menu's</h3>
+                <div className='container m-0' >
+                    <h3 className='mx-4'>Admin</h3>
                     <div className=''>
                         <ul>
-                            <li className='my-2'><a href="">Dashboard</a></li>
-                            <li className='my-2'><a href="">Users</a></li>
-                            <li className='my-2'><a href="">FAQ?</a></li>
-                            <Link to={'/upload'}>
-                            <li className='my-2'><a href="">Upload File</a></li>
+                            <li className='my-2'><a id="d" href="">Dashboard</a></li>
+                            <li className='my-2'><a id="u" href="">Users</a></li>
+                            <Link to={'/solution'}>
+                            <li className='my-2'><a id="f" href="">Solutions</a></li>
+                            </Link>
+                            <Link to={'/soltuion/article'}>
+                                <li className='my-2'><a id="U" href="">Add content</a></li>
                             </Link>
                         </ul>
-                    </div> 
+                    </div>
                 </div>
                 <footer><small>@2022 All Rights Reserved</small></footer>
-               
+
             </div>
         );
     }

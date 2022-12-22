@@ -5,11 +5,22 @@ a
 {
     text-decoration: none;
 }
-a:hover
+.mx-5:hover
 {
     border-bottom:3px solid rgb(3, 119, 7) ;
 }
 .m-0
 {
     height: 500px;
+    width: 18%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.form-select
+{   
+    margin-top: 20px;
+    width:200px;
+    height: 35px;
+}
+
+
+

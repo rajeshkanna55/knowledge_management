@@ -28,7 +28,7 @@ class Signin extends Component {
         const { type, username, email, password } = this.state;
         console.log("Role: ",this.state.type);
         if (this.state.type !== "") {
-                alert("SELECT WORK");
+                alert('Are you sure continue As :' +'' +this.state.type);
             var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{8,16}$/;
             if (regularExpression.test(this.state.password)) {
                 var regEx = /^[0-9A-Z]/;
@@ -43,14 +43,13 @@ class Signin extends Component {
                             },
                             body: JSON.stringify(this.state)
                         }).then(async (res)=>{ 
-                            console.log(res.status);
                             if(await res.status===201)
                             {
-                                alert('if condition work');
+                                alert("Thanks for login");
                                 this.props.navigate('/learn');
                             }
                             else if(res.status===401){
-                                 alert('else work');
+                                 alert('please try again');
                             }
                             else{
                                 alert('server error');
@@ -63,7 +62,7 @@ class Signin extends Component {
                     }
                 }
                 else {
-                    alert('enter strong username');
+                    alert('enter valid username');
                 }
             }
             else {

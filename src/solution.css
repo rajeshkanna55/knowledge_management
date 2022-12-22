@@ -1,0 +1,41 @@
+#my
+ {
+  background: linear-gradient(to bottom right, #f0f0f0, #53f458);
+  border: 0;
+  border-radius: 12px;
+  color: #0a0000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  position: relative;
+  left: 40%;
+}
+
+#my:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(18, 138, 98, 0.5), .125rem .125rem 1rem rgba(2, 137, 2, 0.5);
+}
+#my:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(55, 212, 149, 0.5), .125rem .125rem 1rem rgba(6, 132, 4, 0.5);
+}
+
+#mydiv
+{   
+    position: relative;
+    left: 50px;
+    bottom: 500px;
+    width: 50%;
+    height: 200px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

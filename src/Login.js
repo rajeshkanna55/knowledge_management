@@ -51,7 +51,7 @@ class Login extends Component {
     
     
       if (this.state.username === '' && this.state.password === '') {
-        alert('please fill data');
+        alert('please fill username & password');
 
       }
       else {
@@ -67,11 +67,11 @@ class Login extends Component {
           .then(async (res) => {
             if (await res.status === 200) {
               alert("User successfully");
-              this.props.navigate('/dash');
-            }
-            else if(await res.status=== 201){
-              alert("Admin login successfully");
               this.props.navigate('/user');
+            }
+            else if(await res.status === 201){
+              alert("Admin login successfully");
+              this.props.navigate('/dash');
             }
             else{
                 alert('invalid username or password');

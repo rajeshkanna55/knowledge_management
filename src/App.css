@@ -14,3 +14,45 @@ nav button{
 position :relative;
 right: 40rem;
 }
+#wel
+{
+  margin-top: 100px;
+  background-image: linear-gradient(to top right, rgb(83, 204, 168), rgb(247, 247, 243)); 
+  height: 200px;
+}
+
+#enter 
+{
+  
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #31ffb7, #03dbe6);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #0b0000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  left:400px;
+  top: 100px;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 20%;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow .2s;
+}
+
+#enter:hover {
+  box-shadow: rgba(13, 4, 0, 0.5) 0 3px 8px;
+}

@@ -21,12 +21,12 @@ function Head(){
 function Welcome(){
   return (
     <div>
-      <div className="container">
-        <h2>Knowledge Base Portal
+      <div className="container" id="wel">
+        <h2 className='text-center'>Knowledge Base Portal
 For Editors, Writers, and Reviewers
 </h2>
 <Link to={'/learn'}>
-<button>Enter</button>
+<button id="enter">Enter</button>
 </Link>
       </div>
     </div>
