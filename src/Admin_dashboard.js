@@ -19,7 +19,9 @@ export class Option extends Component {
                         <h3 className="mx-2 my-3">Learn</h3>
                         <div>
                             <ul className='d-flex flex-row' >
-                                <li className='mx-5 my-3 p-1'><a href="">About</a></li>
+                            <Link to={'/dash'}>
+                                <li className='mx-5 my-3 p-1'><a href="">Home</a></li>
+                                </Link>
                                 <Link to={'/products'}>
                                 <li className='mx-5 my-3 p-1'><a href="">Products</a></li>
                                 </Link>
@@ -48,14 +50,14 @@ export class Dashboard extends Component {
                     <h3 className='mx-4'>Admin</h3>
                     <div className=''>
                         <ul>
+                            <Link to={'/dashboard'}>
                             <li className='my-2'><a id="d" href="">Dashboard</a></li>
+                            </Link>
                             <li className='my-2'><a id="u" href="">Users</a></li>
                             <Link to={'/solution'}>
                             <li className='my-2'><a id="f" href="">Solutions</a></li>
                             </Link>
-                            <Link to={'/soltuion/article'}>
-                                <li className='my-2'><a id="U" href="">Add content</a></li>
-                            </Link>
+                           
                         </ul>
                     </div>
                 </div>

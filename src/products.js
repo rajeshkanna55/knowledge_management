@@ -3,10 +3,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Option } from './Admin_dashboard';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
+import Article from './articles';
 import './products.css';
 
 export function Products() {
     const [val, setVal] = useState([]);
+    const [data, setData] = useState([]);
+    
 
     useEffect(() => {
         const url = "http://localhost:4000/folder/products/name";
@@ -17,18 +21,18 @@ export function Products() {
             })
     }, []);
     const folde = (e) => {
-
         const vl = e.target.getAttribute('id');
-        
-        fetch('http://localhost:4000/content',{
-                        method: 'POST',
-                        mode: 'cors',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(vl)
-                    });
+        const url = `http://localhost:4000/content/${vl}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(json => {
+                setData(json);
+            })
     }
+    const download=(e)=>{
+        const lin=e.target.getAttribute('name');
+          console.log(lin);
+        }
     return (
         <div>
             <Option />
@@ -37,8 +41,8 @@ export function Products() {
                 <div className=''>
                     <ul>
                         {
-                            val.map((Folder) => (
-                                <li className='my-2' id={Folder.folder} onClick={e => folde(e)}>{Folder.folder}</li>
+                            val.map((Folder, index) => (
+                                <li className='my-2' id={Folder.folder} key={index} onClick={e => folde(e)}>{Folder.folder}</li>
                             ))
 
                         }
@@ -49,39 +53,37 @@ export function Products() {
                 </div>
             </div>
             <footer><small>@2022 All Rights Reserved</small></footer>
-
-        </div>
-    );
-}
-
-export function Content() {
-         
-    return (
-        <div>
             <div className='container w-75 ' id="artdiv">
                 <div className='row' >
-                    <div className='col p-2 text-center' id="article">
-                       <h4>this is my title 1</h4>
-                       <p>This my content 1</p>
-                    </div>
+                    {
+                        data.map((article, index) => (
+                            <div>
+                                <div className='col p-2 text-center' id="article">
+                                    <h4>{article.filename}</h4>
+                                    <p>{article.file}</p>
+                                    <a name={article.docs} href={article.docs} onClick={e => download(e)} target="_blank">Download</a>
+                                </div>
+                                <br></br>
+                            </div>
+                        ))
+                    }
                     <Link to={"/solution/article"}>
                         <div className='col text-center p-2'>
-                        <h4><span>+</span>Add Articles</h4>
-                        
-                    </div>
+                            <h4><span>+</span>Add Articles</h4>
+                        </div>
                     </Link>
-                    
                 </div>
             </div>
+
         </div>
     );
 }
 
-function Contents(){
-    return(
+
+function Contents() {
+    return (
         <div>
-            <Products/>
-            <Content/>
+            <Products />
         </div>
     );
 }

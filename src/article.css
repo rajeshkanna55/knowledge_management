@@ -21,22 +21,21 @@
 #opt
 {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    position:relative;
-    left: 100px;
-    bottom: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
 }
 
 #cont
 {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     height: 600px;
-    position:relative;
-    left: 100px;
-    bottom: 470px;
+   
+    
 }
 #content
 {
-    height: 400px;
+    height: 300px;
 }
 #new
 {

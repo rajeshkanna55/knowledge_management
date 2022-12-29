@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { UserDash } from './user_dashboard';
 import Solution from './solution';
+import Registers from './register';
 export default function Main() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ export default function Main() {
         <Route path="/solution/article" element={<Articles/>}></Route>
         <Route path="/products" element={<Contents/>}></Route>
         <Route path="/products/create" element={<Create/>}></Route>
+        <Route path="/dashboard" element={<Registers/>}></Route>
       </Routes>
     </BrowserRouter>
   );
