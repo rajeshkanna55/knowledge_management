@@ -59,7 +59,7 @@ class Upload extends Component{
                 <div className='container  w-50' id='fill'>
                     <form onSubmit={this.submit}>
                         <br></br>
-                        <label className='form__label' >File Name</label>
+                        <label className='form__label'>File Name</label>
                         <br></br>
                         <input type='text' className='form-control w-50' placeholder='File Name' id="name" onChange={this.data}></input>
                         <br></br>

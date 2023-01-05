@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Option } from './Admin_dashboard';
 import { Dashboard } from './Admin_dashboard';
 import { Products } from './products';
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './article.css';
 import { useNavigate } from 'react-router-dom';
@@ -94,7 +95,10 @@ function Article() {
             <Option/>
             <form onSubmit={save}>
                 <div className='container w-75' id="opt">
+                    <Link to={'/dash'}>
                     <button id="cancel">Cancel</button>
+                    </Link>
+                    
                     <button id="save" type='submit' >Save</button>
                     <button id="new">New Article</button>
                 </div>

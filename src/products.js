@@ -33,6 +33,38 @@ export function Products() {
         const lin=e.target.getAttribute('name');
           console.log(lin);
         }
+        const art=()=>{
+            return(
+                <div className='container w-75 ' id="artdiv">
+                <div className='row' >
+                    {
+                        data.map((article, index) => (
+                            <div>
+                                <div className='col p-2 text-center' id="article1">
+                                    <h4>{article.filename}</h4>
+                                    <p>{article.file}</p>
+                                    <a name={article.docs} href={article.docs} onClick={e => download(e)} target="_blank">Download</a>
+                                    <Link to={`/edit/${article._id}`}>
+                                        <br></br>
+                                        <a>Edit</a>
+                                    </Link>
+                                </div>
+                                <br></br>
+                            </div>
+                        ))
+                    }
+                    <Link to={"/solution/article"}>
+                        <div className='col text-center p-2'>
+                            <h4><span>+</span>Add Articles</h4>
+                        </div>
+                    </Link>
+                </div>
+            </div>
+            );
+        }
+        const filter=(e)=>{
+            console.log(e.target.value);
+        }
     return (
         <div>
             <Option />
@@ -53,27 +85,7 @@ export function Products() {
                 </div>
             </div>
             <footer><small>@2022 All Rights Reserved</small></footer>
-            <div className='container w-75 ' id="artdiv">
-                <div className='row' >
-                    {
-                        data.map((article, index) => (
-                            <div>
-                                <div className='col p-2 text-center' id="article">
-                                    <h4>{article.filename}</h4>
-                                    <p>{article.file}</p>
-                                    <a name={article.docs} href={article.docs} onClick={e => download(e)} target="_blank">Download</a>
-                                </div>
-                                <br></br>
-                            </div>
-                        ))
-                    }
-                    <Link to={"/solution/article"}>
-                        <div className='col text-center p-2'>
-                            <h4><span>+</span>Add Articles</h4>
-                        </div>
-                    </Link>
-                </div>
-            </div>
+            {art()}
 
         </div>
     );

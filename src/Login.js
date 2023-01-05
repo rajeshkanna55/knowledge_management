@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { withRouter } from './roots';
 
+
 export function Header() {
   return (
     <div>
@@ -66,8 +67,8 @@ class Login extends Component {
         })
           .then(async (res) => {
             if (await res.status === 200) {
-              alert("User successfully");
-              this.props.navigate('/user');
+              alert('user Login successfully');
+              this.props.navigate(`/user/${username}`);
             }
             else if(await res.status === 201){
               alert("Admin login successfully");

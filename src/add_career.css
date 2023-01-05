@@ -1,0 +1,23 @@
+#job {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    width: 60%;
+    height: 400px;
+    position: relative;
+    left: 100px;
+    bottom: 500px;
+}
+
+#job_cancel {
+    position: relative;
+    left: 300px;
+}
+
+#job_save {
+    position: relative;
+    left: 300px;
+}
+
+#post {
+    position: relative;
+    left:100px;
+}

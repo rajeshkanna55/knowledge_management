@@ -5,11 +5,11 @@ import img from './images/LOGO-BY-S.R.-EDITING-ZONE-13.png';
 import './Admin.css'
 import { Link } from 'react-router-dom';
 
-export class Option extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
+export function Option() {
+            const filter=(e)=>{
+                console.log(e.target.value);
+            }
+   
         return (
             <div>
                 <div className="container-fluid d-flex" >
@@ -20,23 +20,30 @@ export class Option extends Component {
                         <div>
                             <ul className='d-flex flex-row' >
                             <Link to={'/dash'}>
-                                <li className='mx-5 my-3 p-1'><a href="">Home</a></li>
+                                <li className='mx-5 my-3 p-1'>Home</li>
                                 </Link>
                                 <Link to={'/products'}>
-                                <li className='mx-5 my-3 p-1'><a href="">Products</a></li>
+                                <li className='mx-5 my-3 p-1'>Products</li>
                                 </Link>
-                                <li className='mx-5 my-3 p-1'><a href="">Company</a></li>
-                                <li className='mx-5 my-3 p-1'><a href="">Career</a></li>
-                                <li className='mx-5 my-3 p-1'><a href="">Contact</a></li>
+                                <li className='mx-5 my-3 p-1'>Company</li>
+                                <Link to={'/usercourses/jobs'}>
+                                <li className='mx-5 my-3 p-1'>Career</li>
+                                </Link>
+                                
+                                <li className='mx-5 my-3 p-1'>Contact</li>
+                                <Link to={'/courses'}>
+                                <li className='mx-5 my-3 p-1'>Courses</li>
+                                </Link>
+                               
+
                             </ul>
                         </div>
-                        <input type="text" className='form-control w-35 my-3 h-50' placeholder='search courses'></input>
                     </nav>
                 </div>
             </div>
         );
     }
-}
+
 
 export class Dashboard extends Component {
     constructor(props) {
@@ -51,11 +58,11 @@ export class Dashboard extends Component {
                     <div className=''>
                         <ul>
                             <Link to={'/dashboard'}>
-                            <li className='my-2'><a id="d" href="">Dashboard</a></li>
+                            <li className='my-2'> Dashboard</li>
                             </Link>
-                            <li className='my-2'><a id="u" href="">Users</a></li>
+                            <li className='my-2'>users</li>
                             <Link to={'/solution'}>
-                            <li className='my-2'><a id="f" href="">Solutions</a></li>
+                            <li className='my-2'>Solutions</li>
                             </Link>
                            
                         </ul>

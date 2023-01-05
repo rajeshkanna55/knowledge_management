@@ -14,6 +14,13 @@ import reportWebVitals from './reportWebVitals';
 import { UserDash } from './user_dashboard';
 import Solution from './solution';
 import Registers from './register';
+import Edit from './edit';
+import Search from './courses';
+import Faq from './faq';
+import Usercourses from './usercourses';
+import Career from './career';
+import Addcareer from './add_career';
+
 export default function Main() {
   return (
     <BrowserRouter>
@@ -23,12 +30,18 @@ export default function Main() {
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/dash" element={<Admin />}></Route>
         <Route path="/upload" element={<File />}></Route>
-        <Route path="/user" element={<UserDash />}></Route>
+        <Route path="/user/:username" element={<UserDash />}></Route>
         <Route path="/solution" element={<Solution />}></Route>
-        <Route path="/solution/article" element={<Articles/>}></Route>
-        <Route path="/products" element={<Contents/>}></Route>
-        <Route path="/products/create" element={<Create/>}></Route>
-        <Route path="/dashboard" element={<Registers/>}></Route>
+        <Route path="/solution/article" element={<Articles />}></Route>
+        <Route path="/products" element={<Contents />}></Route>
+        <Route path="/products/create" element={<Create />}></Route>
+        <Route path="/dashboard" element={<Registers />}></Route>
+        <Route path="edit/:id" element={<Edit/>}></Route>
+        <Route path="/courses" element={<Search />}></Route>
+        <Route path="/faq" element={<Faq />}></Route>
+        <Route path="/usercourses" element={<Usercourses />}></Route>
+        <Route path="/usercourses/jobs" element={<Career />}></Route>
+        <Route path="/usercourses/post" element={<Addcareer />}></Route>
       </Routes>
     </BrowserRouter>
   );
